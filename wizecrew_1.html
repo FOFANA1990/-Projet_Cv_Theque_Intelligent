@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WizeCrew — Rejoindre l'équipage WizeTech | Missions cyber, IT &amp; IA</title>
+<meta name="description" content="WizeCrew, l'équipage de WizeTech : déposez votre CV, découvrez les profils recherchés (GRC, pentest, architecture, SOC, IA) et choisissez votre cadre — salariat, freelance ou portage via WizePort.">
+<meta name="author" content="WizeCrew — WizeTech">
+<meta property="og:title" content="WizeCrew — Votre expertise mérite mieux qu'une CVthèque.">
+<meta property="og:description" content="Missions choisies en environnements régulés, qualification par des pairs. Par WizeTech.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23002A3F'/%3E%3Ccircle cx='12' cy='11' r='4.4' fill='none' stroke='%2300E7FF' stroke-width='2.4'/%3E%3Cpath d='M4.5 26c1.1-5 4.2-7.5 7.5-7.5s6.4 2.5 7.5 7.5' fill='none' stroke='%2300E7FF' stroke-width='2.4'/%3E%3Crect x='21' y='8' width='5' height='5' fill='%2306F9BE'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "WizeCrew",
+  "description": "Communauté de consultants cybersécurité, IT et IA — une marque de WizeTech S.à r.l.",
+  "parentOrganization": { "@type": "Organization", "name": "WizeTech S.à r.l." },
+  "email": "contact@wizetech.lu",
+  "areaServed": ["LU", "BE", "FR"]
+}
+</script>
+<style>
+/* ============================================================
+   WIZECREW — MARQUE SŒUR DE WIZETECH (talents & candidatures)
+   Même système graphique (BrandDoc V1), accent cyan clair.
+   ============================================================ */
+:root{
+  --navy:#002A3F; --navy-deep:#001824; --navy-3:#014A66;
+  --steel:#1985A1; --cyan:#04CEFC; --cyan-l:#00E7FF; --mint:#06F9BE;
+  --white:#FFFFFF; --ink70:rgba(255,255,255,.72); --ink50:rgba(255,255,255,.52); --ink30:rgba(255,255,255,.30);
+  --line:rgba(255,255,255,.14); --glass:rgba(0,42,63,.55);
+  --light-bg:#EAF3F6; --light-ink:#002A3F; --light-ink2:#3A5866;
+  --sg:"Space Grotesk",system-ui,sans-serif;
+  --ps:"IBM Plex Sans",system-ui,sans-serif;
+  --pm:"IBM Plex Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.7,.25,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:linear-gradient(168deg,var(--navy-deep) 0%,var(--navy) 46%,#013a52 78%,var(--navy-3) 100%) fixed,var(--navy);
+  color:var(--white); font-family:var(--ps); font-size:16px; line-height:1.7; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(0,231,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,231,255,.04) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 25%,black 30%,transparent 92%);
+          mask-image:radial-gradient(ellipse at 50% 25%,black 30%,transparent 92%);
+}
+h1,h2,h3,h4{font-family:var(--sg);font-weight:600;line-height:1.15}
+p{max-width:68ch}
+a{color:var(--cyan-l)}
+::selection{background:var(--cyan-l);color:var(--navy)}
+:focus-visible{outline:2px solid var(--cyan-l);outline-offset:3px}
+::-webkit-scrollbar{width:9px}::-webkit-scrollbar-track{background:var(--navy-deep)}::-webkit-scrollbar-thumb{background:var(--steel)}
+.skip{position:absolute;left:-999px;top:0;background:var(--cyan-l);color:var(--navy);padding:10px 16px;z-index:200;font-family:var(--sg)}
+.skip:focus{left:12px;top:12px}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--cyan-l),var(--cyan));z-index:110}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative}
+section.sec{position:relative;padding:100px 0}
+.surt{display:flex;align-items:center;gap:14px;font-weight:300;font-style:italic;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan-l);font-size:.78rem;margin-bottom:18px}
+.surt::before{content:"";width:34px;height:1px;background:var(--cyan-l)}
+.surt .n{font-family:var(--pm);font-style:normal;color:var(--ink50)}
+h2.t{font-size:clamp(1.9rem,4.2vw,2.9rem);max-width:24ch;margin-bottom:18px}
+h2.t .hl{position:relative;white-space:nowrap}
+h2.t .hl::after{content:"";position:absolute;left:0;bottom:.05em;height:.14em;width:100%;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) .3s;z-index:-1}
+.in h2.t .hl::after,h2.t.in .hl::after{transform:scaleX(1)}
+.lead{color:var(--ink70);font-size:1.05rem;max-width:62ch}
+.ghost{position:absolute;top:22px;right:0;font-family:var(--sg);font-weight:700;font-size:clamp(6rem,15vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(0,231,255,.12);pointer-events:none;user-select:none}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+body.rm .rv{opacity:1;transform:none;transition:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sg);font-weight:600;font-size:.9rem;text-decoration:none;padding:13px 26px;cursor:pointer;transition:transform .25s var(--ease),background .25s,filter .25s;position:relative;border:0}
+.btn.c{background:var(--cyan-l);color:var(--navy)}
+.btn.c:hover{filter:brightness(1.08)}
+.btn.s{background:transparent;color:var(--white);border:1px solid var(--cyan-l)}
+.btn.s:hover{background:rgba(0,231,255,.1)}
+.btn .ar{transition:transform .25s}
+.btn:hover .ar{transform:translateX(4px)}
+.btn.c::before,.btn.c::after{content:"";position:absolute;width:10px;height:10px;border:2px solid var(--mint);opacity:0;transition:opacity .25s,transform .25s}
+.btn.c::before{top:-6px;left:-6px;border-right:0;border-bottom:0;transform:translate(4px,4px)}
+.btn.c::after{bottom:-6px;right:-6px;border-left:0;border-top:0;transform:translate(-4px,-4px)}
+.btn.c:hover::before,.btn.c:hover::after{opacity:1;transform:translate(0,0)}
+.badge{display:inline-block;font-weight:600;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--cyan-l);color:var(--cyan-l);background:rgba(0,231,255,.06);white-space:nowrap}
+.badge.m{border-color:var(--mint);color:var(--mint);background:rgba(6,249,190,.06)}
+.badge.dim{border-color:var(--ink30);color:var(--ink50);background:none}
+
+/* ---------- HEADER ---------- */
+header.top{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,24,36,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:11px 0}
+.navwrap{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:26px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white)}
+.brand svg{width:26px;height:26px;flex:none}
+.brand .wm{font-family:var(--sg);font-weight:700;font-size:1.16rem;letter-spacing:.05em}
+.brand .wm b{background:var(--cyan-l);color:var(--navy);padding:1px 8px;margin-left:6px}
+.brand small{font-family:var(--pm);font-size:.6rem;letter-spacing:.14em;color:var(--ink50);text-transform:uppercase;display:block;margin-top:2px}
+nav.main{margin-left:auto;display:flex;align-items:center;gap:24px}
+nav.main a.lnk{color:var(--ink70);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .25s}
+nav.main a.lnk:hover{color:var(--cyan-l)}
+nav.main a.back{color:var(--cyan);text-decoration:none;font-size:.86rem;font-weight:600;border:1px solid rgba(4,206,252,.5);padding:8px 13px;transition:background .25s}
+nav.main a.back:hover{background:rgba(4,206,252,.1)}
+#burger{margin-left:auto;display:none;background:none;border:1px solid var(--line);width:46px;height:42px;cursor:pointer;position:relative;z-index:106}
+#burger span{position:absolute;left:11px;right:11px;height:2px;background:var(--white);transition:transform .35s var(--ease),opacity .25s,top .35s}
+#burger span:nth-child(1){top:13px}#burger span:nth-child(2){top:20px}#burger span:nth-child(3){top:27px}
+#burger.open span:nth-child(1){top:20px;transform:rotate(45deg)}
+#burger.open span:nth-child(2){opacity:0}
+#burger.open span:nth-child(3){top:20px;transform:rotate(-45deg)}
+#mobmenu{position:fixed;inset:0;background:rgba(0,24,36,.97);z-index:104;display:flex;flex-direction:column;justify-content:center;padding:90px 40px 40px;gap:8px;transform:translateY(-102%);transition:transform .5s var(--ease)}
+#mobmenu.open{transform:translateY(0)}
+#mobmenu a{color:var(--white);text-decoration:none;font-family:var(--sg);font-weight:600;font-size:clamp(1.4rem,6vw,2rem);padding:10px 0;border-bottom:1px solid var(--line)}
+#mobmenu a.bk{color:var(--cyan)}
+@media (max-width:920px){nav.main{display:none}#burger{display:block}}
+
+/* ---------- HERO ---------- */
+#hero{min-height:88svh;display:flex;flex-direction:column;justify-content:center;position:relative;padding:188px 0 90px;overflow:hidden}
+#net{position:absolute;inset:0;z-index:0;opacity:.55}
+#hero .wrap{z-index:2}
+#hero h1{font-size:clamp(2.4rem,5.2vw,4.1rem);font-weight:700;max-width:18ch;letter-spacing:-.01em}
+#hero h1 .hl{position:relative;white-space:nowrap}
+#hero h1 .hl::after{content:"";position:absolute;left:0;bottom:.05em;height:.13em;width:100%;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) .7s}
+#hero.go h1 .hl::after{transform:scaleX(1)}
+body.rm #hero h1 .hl::after{transform:scaleX(1)}
+#hero .sub{margin-top:24px;color:var(--ink70);font-size:1.08rem;max-width:56ch}
+#hero .ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+#hero .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:42px}
+
+/* ---------- BANDEAU MÉTIERS ---------- */
+.band{border-top:1px solid rgba(0,231,255,.4);border-bottom:1px solid rgba(0,231,255,.4);overflow:hidden;padding:17px 0;position:relative;z-index:2;
+  background:linear-gradient(90deg,rgba(0,231,255,.14) 0%,rgba(1,54,78,.92) 45%,rgba(0,231,255,.08) 100%),var(--navy-deep)}
+.band .track{display:flex;width:max-content;animation:mq 68s linear infinite;animation-delay:-17s}
+.band:hover .track{animation-play-state:paused}
+body.rm .band .track{animation:none}
+.band .set{display:flex;align-items:center}
+.band .it{font-family:var(--sg);font-weight:500;font-size:.92rem;color:rgba(255,255,255,.85);padding:0 26px;display:flex;align-items:center;gap:26px;white-space:nowrap}
+.band .it::after{content:"◆";font-size:.5rem;color:var(--cyan-l)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- POSTES ---------- */
+.avert{font-size:.85rem;color:var(--ink50);border-left:3px solid var(--mint);padding-left:16px;margin-top:18px;max-width:76ch}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:40px 0 26px}
+.fbtn{background:none;border:1px solid var(--line);color:var(--ink70);font-family:var(--sg);font-weight:500;font-size:.82rem;padding:9px 16px;cursor:pointer;transition:all .25s}
+.fbtn:hover{border-color:var(--cyan-l);color:var(--white)}
+.fbtn.on{background:var(--cyan-l);border-color:var(--cyan-l);color:var(--navy);font-weight:600}
+.jcount{font-family:var(--pm);font-size:.7rem;letter-spacing:.14em;color:var(--ink50);text-transform:uppercase;margin-bottom:16px}
+.jobs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.jobs{grid-template-columns:1fr}}
+.job{background:var(--glass);border:1px solid var(--line);border-radius:6px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:24px;display:flex;flex-direction:column;gap:12px;transition:transform .35s var(--ease),border-color .35s}
+.job:hover{transform:translateY(-4px);border-color:rgba(0,231,255,.55)}
+.job .top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.job h3{font-size:1.05rem}
+.job .tags{display:flex;flex-wrap:wrap;gap:7px}
+.job .tags span{font-family:var(--pm);font-size:.64rem;color:var(--ink70);border:1px solid rgba(255,255,255,.22);padding:3px 9px}
+.job p{color:var(--ink70);font-size:.9rem;flex:1}
+.job .apply{align-self:flex-start;background:none;border:1px solid var(--cyan-l);color:var(--white);font-family:var(--sg);font-weight:600;font-size:.84rem;padding:10px 18px;cursor:pointer;transition:all .25s;display:inline-flex;gap:8px;align-items:center}
+.job .apply:hover{background:rgba(0,231,255,.12)}
+.job .apply .ar{transition:transform .25s}
+.job .apply:hover .ar{transform:translateX(4px)}
+
+/* ---------- DÉPÔT CV — zone claire unique ---------- */
+#cv{background:var(--light-bg);color:var(--light-ink)}
+#cv .surt{color:#0b7d99}
+#cv .surt::before{background:#0b7d99}
+#cv .surt .n{color:var(--light-ink2)}
+#cv .lead{color:var(--light-ink2)}
+#cv .ghost{-webkit-text-stroke-color:rgba(0,42,63,.1)}
+form.cf{display:grid;gap:16px;margin-top:44px;background:#fff;border:1px solid rgba(0,42,63,.14);padding:34px}
+.cf .duo2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.cf .duo2{grid-template-columns:1fr}}
+.cf label{display:grid;gap:7px;font-family:var(--pm);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light-ink2)}
+.cf input,.cf select,.cf textarea{background:#F4F9FB;border:1px solid rgba(0,42,63,.2);color:var(--light-ink);font-family:var(--ps);font-size:.95rem;padding:13px 15px;transition:border-color .3s;width:100%}
+.cf input:focus,.cf select:focus,.cf textarea:focus{border-color:var(--steel);outline:none}
+.cf textarea{min-height:110px;resize:vertical}
+.cf .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.cf .note{font-size:.78rem;color:var(--light-ink2);max-width:none}
+.filebox{display:flex;align-items:center;gap:14px;border:1px dashed rgba(0,42,63,.35);background:#F4F9FB;padding:16px;cursor:pointer;transition:border-color .25s}
+.filebox:hover{border-color:var(--steel)}
+.filebox svg{flex:none;width:26px;height:26px;color:#0b7d99}
+.filebox b{font-family:var(--sg);font-size:.9rem;display:block}
+.filebox span{font-size:.78rem;color:var(--light-ink2)}
+.filebox input{display:none}
+#formok{display:none;border:1px solid #049e79;background:rgba(6,249,190,.12);color:#02664e;padding:14px 18px;font-size:.9rem;max-width:none}
+#formok.show{display:block}
+.cf .btn.c{justify-self:start}
+/* Dépôt express — dropzone */
+.chrono{display:inline-flex;align-items:center;gap:8px;border:1px solid #049e79;color:#02664e;background:rgba(6,249,190,.14);padding:6px 12px;font-family:var(--pm);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-top:14px}
+.drop{margin-top:34px;background:#fff;border:2px dashed rgba(0,42,63,.32);padding:54px 30px;text-align:center;cursor:pointer;transition:border-color .25s,background .25s,transform .25s;outline-offset:4px}
+.drop:hover{border-color:#0b7d99}
+.drop.over{border-color:#0b7d99;background:#EFF9F7;transform:scale(1.008)}
+.drop.haz{border-style:solid;border-color:#049e79;background:#F0FAF6}
+.drop.err{border-color:#C0392B;background:#FBF1EF}
+.drop svg{width:46px;height:46px;margin:0 auto 14px;color:#0b7d99}
+.drop b{font-family:var(--sg);font-size:1.08rem;display:block;color:var(--light-ink)}
+.drop span{font-size:.82rem;color:var(--light-ink2);display:block;margin-top:6px}
+.drop input{display:none}
+.postechip{display:none;margin:16px 0 0;max-width:max-content;align-items:center;gap:10px;border:1px solid #0b7d99;color:#0b5c73;padding:6px 12px;font-size:.8rem;background:#fff}
+.postechip.show{display:flex}
+.postechip button{background:none;border:0;cursor:pointer;color:inherit;font-size:.95rem;padding:0}
+#cvStatus{display:none;font-family:var(--pm);font-size:.78rem;color:var(--light-ink2);margin-top:14px}
+#cvStatus.show{display:block}
+#cvStatus.err{color:#C0392B}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.8rem;color:var(--light-ink2);margin-top:18px;max-width:62ch;padding:4px;border:1px solid transparent}
+.consent.err{border-color:#C0392B;background:#FBF1EF}
+.consent input{margin-top:4px;accent-color:#049e79;flex:none}
+.consent button{background:none;border:0;padding:0;cursor:pointer;color:#0b5c73;text-decoration:underline;font-size:inherit;font-family:inherit}
+.cvactions{display:flex;gap:16px;align-items:center;margin-top:22px;flex-wrap:wrap}
+/* Pipeline « ce qui se passe ensuite » */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);margin-top:46px}
+@media(max-width:860px){.pipe{grid-template-columns:1fr}}
+.pp{position:relative;padding:20px 18px;border:1px solid rgba(0,42,63,.16);background:#fff}
+.pp+.pp{border-left:0}
+@media(max-width:860px){.pp+.pp{border-left:1px solid rgba(0,42,63,.16);border-top:0}}
+.pp .n{font-family:var(--pm);font-size:.64rem;color:#0b7d99;letter-spacing:.16em}
+.pp b{font-family:var(--sg);display:block;margin:7px 0 5px;color:var(--light-ink);font-size:.93rem}
+.pp span{font-size:.78rem;color:var(--light-ink2)}
+.pp em{position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-style:normal;color:#0b7d99;background:#fff;z-index:1;font-size:.9rem}
+.pp:last-child em,.pp em{display:none}
+@media(min-width:861px){.pp em{display:block}.pp:last-child em{display:none}}
+.soon{margin-top:18px;font-size:.79rem;color:var(--light-ink2);border-left:3px solid var(--steel);padding-left:14px;max-width:74ch}
+
+/* ---------- MÉTHODE ---------- */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+@media (max-width:900px){.steps3{grid-template-columns:1fr}}
+.st{background:var(--glass);border:1px solid var(--line);border-radius:6px;padding:26px;position:relative}
+.st .n{font-family:var(--sg);font-weight:700;font-size:2rem;color:var(--cyan-l);opacity:.85}
+.st h3{font-size:1.08rem;margin:10px 0 8px}
+.st p{color:var(--ink70);font-size:.92rem}
+.portage{border:1px solid rgba(6,249,190,.4);background:linear-gradient(150deg,rgba(6,249,190,.07),rgba(0,42,63,.4));border-radius:6px;padding:28px;margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+@media (max-width:760px){.portage{grid-template-columns:1fr}}
+.portage h3{color:var(--mint);font-size:1.15rem;margin-bottom:6px}
+.portage p{color:var(--ink70);font-size:.92rem;max-width:none}
+
+/* ---------- FOOTER + DIALOGS ---------- */
+footer{border-top:1px solid var(--line);background:rgba(0,24,36,.75);margin-top:100px}
+footer .in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:44px 0}
+footer .fwm{font-family:var(--sg);font-weight:700;font-size:1.2rem}
+footer .fwm b{color:var(--cyan-l)}
+footer p,footer a{color:var(--ink50);font-size:.82rem}
+footer a{color:var(--ink70)}
+footer a:hover{color:var(--cyan-l)}
+footer .legal{border-top:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--ink50);font-size:.76rem}
+footer .legal button{background:none;border:0;color:var(--ink70);font-family:var(--ps);font-size:.76rem;cursor:pointer;padding:0}
+footer .legal button:hover{color:var(--cyan-l);text-decoration:underline}
+dialog{background:var(--navy);color:var(--white);border:1px solid var(--steel);padding:0;max-width:660px;width:calc(100vw - 40px);max-height:84vh;margin:auto}
+dialog::backdrop{background:rgba(0,12,20,.82);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+dialog .dhead{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:26px 30px 0}
+dialog h3{font-size:1.3rem}
+dialog .dbody{padding:18px 30px 30px;overflow-y:auto;color:var(--ink70);font-size:.94rem;display:grid;gap:14px}
+dialog .dbody p{max-width:none}
+dialog .dbody b{color:var(--white)}
+dialog .x{background:none;border:1px solid var(--line);color:var(--ink70);width:40px;height:40px;cursor:pointer;font-size:1.1rem;flex:none}
+dialog .x:hover{border-color:var(--cyan-l);color:var(--cyan-l)}
+
+/* ---------- BANDEAUX FIXES — harmonisation écosystème ---------- */
+#band-top{position:fixed;left:0;right:0;top:var(--hh,66px);z-index:96;box-shadow:0 10px 28px rgba(0,12,20,.4)}
+#band-bottom{position:fixed;left:0;right:0;bottom:0;z-index:97;box-shadow:0 -10px 28px rgba(0,12,20,.45)}
+#band-bottom .track{animation-direction:reverse}
+section.sec{scroll-margin-top:calc(var(--hh,66px) + 62px)}
+footer{padding-bottom:88px}
+@media (max-width:640px){.band{padding:13px 0}.band .it{font-size:.8rem;padding:0 16px;gap:16px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="top" id="topbar">
+  <div class="navwrap">
+    <a class="brand" href="#hero" aria-label="WizeCrew — accueil">
+      <svg viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="10" cy="9" r="3.8" stroke="#00E7FF" stroke-width="2"/>
+        <path d="M3.5 21.5c.9-4.6 3.7-7 6.5-7s5.6 2.4 6.5 7" stroke="#00E7FF" stroke-width="2" stroke-linecap="square"/>
+        <rect x="17.5" y="6.5" width="5" height="5" fill="#06F9BE"/>
+      </svg>
+      <span><span class="wm">WIZE<b>CREW</b></span><small>Talents · par WizeTech</small></span>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a class="lnk" href="#postes">Profils recherchés</a>
+      <a class="lnk" href="#methode">Comment ça marche</a>
+      <a class="lnk" href="wizeport.html">WizePort</a>
+      <a class="back" href="wizetech.html">← WizeTech</a>
+      <a class="btn c" href="#cv">Déposer mon CV</a>
+    </nav>
+    <button id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobmenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div id="mobmenu">
+  <a href="#postes">Profils recherchés</a>
+  <a href="#cv">Déposer mon CV</a>
+  <a href="#methode">Comment ça marche</a>
+  <a href="wizeport.html">WizePort</a>
+  <a class="bk" href="wizetech.html">← Retour sur WizeTech</a>
+</div>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section id="hero" aria-label="Accueil WizeCrew">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="surt">L'équipage WizeTech — cybersécurité · IT · IA</p>
+    <h1>Votre expertise mérite mieux <span class="hl">qu'une CVthèque</span>.</h1>
+    <p class="sub">WizeCrew, c'est l'équipage de WizeTech : des missions choisies dans des environnements régulés, une qualification par des pairs — pas par des mots-clés — et un cadre à votre main : salariat, freelance ou portage via WizePort.</p>
+    <div class="ctas">
+      <a class="btn c" href="#cv">Déposer mon CV <span class="ar">→</span></a>
+      <a class="btn s" href="#postes">Voir les profils recherchés</a>
+    </div>
+    <div class="badges">
+      <span class="badge">Qualification par des pairs</span>
+      <span class="badge m">Environnements régulés</span>
+      <span class="badge">Salariat · Freelance · Portage</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANDEAU MÉTIERS ================= -->
+<div id="band-top" class="band" aria-label="Métiers de l'équipage">
+  <div class="track">
+    <div class="set">
+      <span class="it">GRC &amp; conformité</span><span class="it">Pentest &amp; Red Team</span><span class="it">Architecture sécurité</span><span class="it">SOC &amp; détection</span><span class="it">IA &amp; data privacy</span><span class="it">Continuité &amp; crise</span><span class="it">Chefs de projet IT</span><span class="it">Architectes SI</span>
+    </div>
+    <div class="set" aria-hidden="true">
+      <span class="it">GRC &amp; conformité</span><span class="it">Pentest &amp; Red Team</span><span class="it">Architecture sécurité</span><span class="it">SOC &amp; détection</span><span class="it">IA &amp; data privacy</span><span class="it">Continuité &amp; crise</span><span class="it">Chefs de projet IT</span><span class="it">Architectes SI</span>
+    </div>
+    <div class="set" aria-hidden="true">
+      <span class="it">GRC &amp; conformité</span><span class="it">Pentest &amp; Red Team</span><span class="it">Architecture sécurité</span><span class="it">SOC &amp; détection</span><span class="it">IA &amp; data privacy</span><span class="it">Continuité &amp; crise</span><span class="it">Chefs de projet IT</span><span class="it">Architectes SI</span>
+    </div>
+    <div class="set" aria-hidden="true">
+      <span class="it">GRC &amp; conformité</span><span class="it">Pentest &amp; Red Team</span><span class="it">Architecture sécurité</span><span class="it">SOC &amp; détection</span><span class="it">IA &amp; data privacy</span><span class="it">Continuité &amp; crise</span><span class="it">Chefs de projet IT</span><span class="it">Architectes SI</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 01 PROFILS RECHERCHÉS (démonstration) ================= -->
+<section class="sec" id="postes">
+  <div class="wrap">
+    <div class="ghost" aria-hidden="true">01</div>
+    <p class="surt rv"><span class="n">01</span> Profils recherchés</p>
+    <h2 class="t rv">Les expertises que nous <span class="hl">embarquons</span>.</h2>
+    <p class="lead rv">Filtrez par domaine, trouvez le profil qui vous ressemble, postulez en deux clics.</p>
+    <p class="avert rv">Liste de démonstration : ces fiches illustrent nos besoins types. Les ouvertures réelles seront publiées ici au fil des missions — votre candidature spontanée, elle, est bien réelle.</p>
+
+    <div class="filters rv" role="group" aria-label="Filtrer les profils">
+      <button class="fbtn on" data-f="all">Tous</button>
+      <button class="fbtn" data-f="grc">GRC &amp; conformité</button>
+      <button class="fbtn" data-f="off">Offensif</button>
+      <button class="fbtn" data-f="archi">Architecture &amp; Cloud</button>
+      <button class="fbtn" data-f="soc">SOC &amp; détection</button>
+      <button class="fbtn" data-f="ia">IA &amp; data</button>
+      <button class="fbtn" data-f="it">IT &amp; projets</button>
+    </div>
+    <p class="jcount rv" id="jcount" aria-live="polite"></p>
+
+    <div class="jobs rv" id="jobs">
+      <article class="job" data-cat="grc">
+        <div class="top"><h3>Consultant·e GRC senior</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>Luxembourg</span><span>Régie longue</span><span>7+ ans</span></div>
+        <p>Piloter des chantiers NIS2, DORA et ISO 27001 en environnement bancaire — cartographies, gap analysis, comités. Vous parlez régulateur ET métier.</p>
+        <button class="apply" data-job="Consultant·e GRC senior">Postuler <span class="ar">→</span></button>
+      </article>
+      <article class="job" data-cat="off">
+        <div class="top"><h3>Pentester</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>Bruxelles · remote</span><span>Missions courtes</span><span>OSCP apprécié</span></div>
+        <p>Tests d'intrusion web, API et infrastructure. Des rapports que les équipes comprennent — et des retests qui prouvent la remédiation.</p>
+        <button class="apply" data-job="Pentester">Postuler <span class="ar">→</span></button>
+      </article>
+      <article class="job" data-cat="archi">
+        <div class="top"><h3>Architecte sécurité Cloud</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>Luxembourg</span><span>Régie</span><span>AWS · Azure</span></div>
+        <p>Concevoir des cibles Zero Trust et des landing zones sécurisées pour des acteurs régulés. Des choix documentés, une dette maîtrisée.</p>
+        <button class="apply" data-job="Architecte sécurité Cloud">Postuler <span class="ar">→</span></button>
+      </article>
+      <article class="job" data-cat="soc">
+        <div class="top"><h3>Analyste SOC &amp; détection</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>Lille · Paris · hybride</span><span>Régie</span><span>EDR · SIEM</span></div>
+        <p>Améliorer la détection en continu : règles, hunting, réduction du bruit. Vous préférez comprendre une alerte que la fermer.</p>
+        <button class="apply" data-job="Analyste SOC &amp; détection">Postuler <span class="ar">→</span></button>
+      </article>
+      <article class="job" data-cat="ia">
+        <div class="top"><h3>Expert·e IA &amp; data privacy</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>Luxembourg</span><span>Forfait · Régie</span><span>AI Act · RGPD</span></div>
+        <p>Inventorier, classifier et gouverner des systèmes d'IA en environnement financier — à l'intersection de l'AI Act et du RGPD.</p>
+        <button class="apply" data-job="Expert·e IA &amp; data privacy">Postuler <span class="ar">→</span></button>
+      </article>
+      <article class="job" data-cat="it">
+        <div class="top"><h3>Chef·fe de projet IT</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>Luxembourg · Belgique</span><span>Régie</span><span>Environnements régulés</span></div>
+        <p>Cadrer et livrer des projets critiques : planification, comités, gestion des risques. Vous tenez les trajectoires, pas seulement les plannings.</p>
+        <button class="apply" data-job="Chef·fe de projet IT">Postuler <span class="ar">→</span></button>
+      </article>
+      <article class="job" data-cat="grc">
+        <div class="top"><h3>RSSI adjoint·e à temps partagé</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>Belgique</span><span>1 à 3 j / semaine</span><span>Confirmé</span></div>
+        <p>Épauler des RSSI en place : comités, indicateurs, suivi de remédiation. De la hauteur de vue et de l'exécution, en alternance.</p>
+        <button class="apply" data-job="RSSI adjoint·e à temps partagé">Postuler <span class="ar">→</span></button>
+      </article>
+      <article class="job" data-cat="off">
+        <div class="top"><h3>Opérateur·rice Red Team</h3><span class="badge dim">Démo</span></div>
+        <div class="tags"><span>FR · BE · LU</span><span>Forfait</span><span>CRTO · TLPT</span></div>
+        <p>Rejouer des modes opératoires réalistes dans des exercices cadrés, jusqu'au TLPT. La discrétion est votre langue maternelle.</p>
+        <button class="apply" data-job="Opérateur·rice Red Team">Postuler <span class="ar">→</span></button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 DÉPÔT DE CV (zone claire) ================= -->
+<section class="sec" id="cv">
+  <div class="wrap">
+    <div class="ghost" aria-hidden="true">02</div>
+    <p class="surt rv"><span class="n">02</span> Candidature</p>
+    <h2 class="t rv">Un CV. <span class="hl">Deux minutes</span>. C'est tout.</h2>
+    <p class="lead rv">Pas de formulaire à rallonge : déposez votre CV, notre IA structure votre profil, et un pair vous répond sous deux jours ouvrés — même quand c'est non.</p>
+    <span class="chrono rv" aria-hidden="true">◷ 2 minutes montre en main</span>
+
+    <div class="duo2 rv">
+      <label>Prénom<input type="text" id="candPrenom" name="prenom" required autocomplete="given-name"></label>
+      <label>Nom<input type="text" id="candNom" name="nom" required autocomplete="family-name"></label>
+    </div>
+    <label class="rv">E-mail<input type="email" id="candEmail" name="email" required autocomplete="email" placeholder="vous@exemple.com"></label>
+
+    <div class="drop rv" id="drop" role="button" tabindex="0" aria-label="Déposer votre CV — cliquez ou glissez le fichier ici">
+      <svg viewBox="0 0 46 46" fill="none" aria-hidden="true"><path d="M10 6h17l9 9v25H10z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M27 6v9h9" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M17.5 27.5l5.5-5.5 5.5 5.5M23 22.5V35" stroke="#049e79" stroke-width="2.6" stroke-linecap="square"/></svg>
+      <b id="dropTitle">Glissez votre CV ici — ou cliquez</b>
+      <span id="dropSub">PDF, Word (.docx) ou image (JPG/PNG) · 10 Mo max · c'est le seul champ à remplir</span>
+      <input type="file" id="cvFile" accept=".pdf,.docx,.png,.jpg,.jpeg">
+    </div>
+    <div class="postechip" id="posteChip"><span id="posteTxt"></span><button id="posteClear" aria-label="Retirer le poste visé">✕</button></div>
+    <label class="consent rv" id="consentBox">
+      <input type="checkbox" id="consent">
+      <span>J'accepte que mon CV soit analysé et que mon profil soit conservé dans la CVthèque WizeCrew pour la mise en relation avec des missions (24 mois maximum, suppression sur simple demande — <button type="button" data-dlg="dlg-privacy">politique de confidentialité</button>).</span>
+    </label>
+    <div class="cvactions rv">
+      <button class="btn c" id="sendCv" type="button">Envoyer mon CV <span class="ar">→</span></button>
+      <p id="cvStatus" role="status" aria-live="polite"></p>
+      <p id="formok" role="status">Votre CV a bien été reçu et analysé. Notre équipe revient vers vous sous deux jours ouvrés.</p>
+    </div>
+    <p class="note rv" style="margin-top:14px">Votre CV est analysé automatiquement (IA) puis conservé dans notre CVthèque sécurisée, conformément à la politique de confidentialité ci-dessus.</p>
+
+    <div class="pipe rv" aria-label="Ce qui se passe après le dépôt">
+      <div class="pp"><span class="n">01 · IA</span><b>Votre CV est lu</b><span>Extraction du parcours, des compétences, des certifications — quel que soit le format.</span><em>→</em></div>
+      <div class="pp"><span class="n">02 · Métadonnées</span><b>Profil structuré</b><span>Domaines, séniorité, langues, mobilité, disponibilité — normalisés et vérifiables.</span><em>→</em></div>
+      <div class="pp"><span class="n">03 · CVthèque</span><b>Entrée en base</b><span>CVthèque sécurisée, hébergée dans l'UE, conforme RGPD — jamais revendue.</span><em>→</em></div>
+      <div class="pp"><span class="n">04 · Humain</span><b>Un pair vous répond</b><span>Mise en relation quand une mission correspond vraiment. Réponse ≤ 2 j ouvrés.</span><em>→</em></div>
+    </div>
+    <p class="soon rv">Transparence : votre CV est lu par une IA hébergée localement (aucune donnée envoyée à un tiers), puis vérifié par un pair de votre métier avant toute mise en relation.</p>
+  </div>
+</section>
+
+<!-- ================= 03 MÉTHODE ================= -->
+<section class="sec" id="methode">
+  <div class="wrap">
+    <div class="ghost" aria-hidden="true">03</div>
+    <p class="surt rv"><span class="n">03</span> Comment ça marche</p>
+    <h2 class="t rv">Trois étapes, <span class="hl">zéro mystère</span>.</h2>
+    <div class="steps3">
+      <div class="st rv"><div class="n">01</div><h3>L'échange</h3><p>Trente minutes sur votre parcours réel — pas sur les mots-clés de votre CV. On parle terrain, contraintes, envies.</p></div>
+      <div class="st rv" data-d="110"><div class="n">02</div><h3>La qualification par un pair</h3><p>Un expert de votre domaine échange avec vous. C'est exigeant, c'est respectueux, et ça évite les missions mal calibrées.</p></div>
+      <div class="st rv" data-d="220"><div class="n">03</div><h3>Les missions &amp; le cadre</h3><p>Nous proposons, vous choisissez : mission, rythme et statut. Salariat, freelance — ou portage via WizePort si vous avez déjà vos clients.</p></div>
+    </div>
+    <div class="portage rv">
+      <div>
+        <h3>Déjà vos missions ? Passez par WizePort.</h3>
+        <p>WizePort vous salarie et porte contrat, facturation, paie et administratif — simulateur de revenus en ligne.</p>
+      </div>
+      <a class="btn s" href="wizeport.html">Découvrir WizePort <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="band-bottom" class="band" aria-label="Cadres et engagements">
+  <div class="track">
+    <div class="set"><span class="it">Salariat</span><span class="it">Freelance</span><span class="it">Portage — WizePort</span><span class="it">Qualification par des pairs</span><span class="it">Environnements régulés</span><span class="it">Réponse sous 2 j ouvrés</span><span class="it">Luxembourg · Belgique · France</span></div>
+    <div class="set" aria-hidden="true"><span class="it">Salariat</span><span class="it">Freelance</span><span class="it">Portage — WizePort</span><span class="it">Qualification par des pairs</span><span class="it">Environnements régulés</span><span class="it">Réponse sous 2 j ouvrés</span><span class="it">Luxembourg · Belgique · France</span></div>
+    <div class="set" aria-hidden="true"><span class="it">Salariat</span><span class="it">Freelance</span><span class="it">Portage — WizePort</span><span class="it">Qualification par des pairs</span><span class="it">Environnements régulés</span><span class="it">Réponse sous 2 j ouvrés</span><span class="it">Luxembourg · Belgique · France</span></div>
+    <div class="set" aria-hidden="true"><span class="it">Salariat</span><span class="it">Freelance</span><span class="it">Portage — WizePort</span><span class="it">Qualification par des pairs</span><span class="it">Environnements régulés</span><span class="it">Réponse sous 2 j ouvrés</span><span class="it">Luxembourg · Belgique · France</span></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="fwm">WIZE<b>CREW</b></p>
+        <p style="margin-top:8px">L'équipage WizeTech — cybersécurité, IT &amp; IA.<br>Luxembourg · Belgique · France</p>
+      </div>
+      <div>
+        <p style="font-family:var(--pm);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;color:var(--ink50)">Écosystème</p>
+        <p><a href="wizetech.html">WizeTech — la maison mère</a><br><a href="wizeport.html">WizePort — portage salarial</a><br><a href="wizesource.html">WizeSource — entreprises &amp; sourcing</a><br><a href="mailto:contact@wizetech.lu">contact@wizetech.lu</a></p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 WizeCrew est une marque de WizeTech S.à r.l. — 14-16, Avenue Pasteur, L-2310 Luxembourg · TVA : LU37524925</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <button data-dlg="dlg-mentions">Mentions légales</button>
+        <button data-dlg="dlg-privacy">Confidentialité</button>
+        <span>Site sans cookies ni traceurs</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg-mentions" aria-labelledby="dlg-m-t">
+  <div class="dhead"><h3 id="dlg-m-t">Mentions légales</h3><button class="x" data-close aria-label="Fermer">✕</button></div>
+  <div class="dbody">
+    <p><b>Éditeur :</b> WizeCrew, marque de WizeTech S.à r.l., société à responsabilité limitée de droit luxembourgeois. Siège social : 14-16, Avenue Pasteur, L-2310 Luxembourg. TVA intracommunautaire : LU37524925. RCS Luxembourg : numéro à compléter.</p>
+    <p><b>Direction de la publication :</b> Olivier Teixido et Damien Fritsch, gérants. <b>Contact :</b> contact@wizetech.lu. <b>Hébergement :</b> à compléter lors de la mise en ligne.</p>
+    <p><b>Avertissement :</b> les fiches de postes marquées « Démo » sont des illustrations de besoins types, pas des offres d'emploi publiées. Les candidatures spontanées sont, elles, traitées réellement.</p>
+  </div>
+</dialog>
+<dialog id="dlg-privacy" aria-labelledby="dlg-p-t">
+  <div class="dhead"><h3 id="dlg-p-t">Politique de confidentialité</h3><button class="x" data-close aria-label="Fermer">✕</button></div>
+  <div class="dbody">
+    <p><b>Pas de cookies, pas de traceurs :</b> ce site ne dépose aucun cookie et n'embarque aucun outil de mesure d'audience. Le formulaire prépare un e-mail depuis votre messagerie ; aucune donnée n'est stockée sur ce site.</p>
+    <p><b>Candidatures &amp; CVthèque :</b> les informations transmises (identité, parcours, CV) sont utilisées uniquement pour l'étude de votre candidature et la mise en relation avec des missions. Votre profil et ses métadonnées sont conservés au maximum 24 mois après le dernier contact, puis supprimés ; vous pouvez demander la suppression à tout moment. Aucune cession, aucun profilage à d'autres fins.</p>
+    <p><b>Analyse par IA :</b> lorsque le pipeline d'analyse automatique sera en service, l'extraction des métadonnées restera supervisée par un humain et hébergée dans l'Union européenne ; cette politique sera mise à jour en conséquence. Droits RGPD (accès, rectification, effacement, opposition) : contact@wizetech.lu. Autorité de contrôle : CNPD (Luxembourg).</p>
+  </div>
+</dialog>
+
+<script>
+(function(){
+"use strict";
+var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (RM) document.body.classList.add("rm");
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+/* Progress + header */
+var progress=$("#progress"), topbar=$("#topbar");
+function onScroll(){
+  var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+  progress.style.width=(max>0?h.scrollTop/max*100:0)+"%";
+  document.documentElement.style.setProperty("--hh", topbar.offsetHeight+"px");
+}
+document.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+addEventListener("load",function(){ $("#hero").classList.add("go"); });
+if(RM) $("#hero").classList.add("go");
+
+/* Révélations */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(!en.isIntersecting) return;
+    var el=en.target, d=parseInt(el.dataset.d||"0",10);
+    setTimeout(function(){el.classList.add("in");},RM?0:d);
+    io.unobserve(el);
+  });
+},{threshold:.15});
+$$(".rv").forEach(function(el){io.observe(el);});
+
+/* Réseau de particules (héro) — l'équipage connecté */
+var cv=$("#net");
+if(cv && !RM){
+  var ctx=cv.getContext("2d"),W=0,H=0,pts=[],N=46,mx=-1e4,my=-1e4;
+  function size(){var r=cv.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size(); addEventListener("resize",size);
+  for(var i=0;i<N;i++)pts.push({x:Math.random()*1.2-.1,y:Math.random()*1.2-.1,vx:(Math.random()-.5)*.0006,vy:(Math.random()-.5)*.0006,s:Math.random()});
+  document.addEventListener("mousemove",function(e){var r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;},{passive:true});
+  (function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<N;i++){
+      var p=pts[i];
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-.15||p.x>1.15)p.vx*=-1;
+      if(p.y<-.15||p.y>1.15)p.vy*=-1;
+    }
+    for(var i=0;i<N;i++){
+      for(var j=i+1;j<N;j++){
+        var a=pts[i],b=pts[j];
+        var dx=(a.x-b.x)*W,dy=(a.y-b.y)*H,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<170){
+          ctx.strokeStyle="rgba(0,231,255,"+(0.14*(1-d/170))+")";
+          ctx.lineWidth=1;
+          ctx.beginPath();ctx.moveTo(a.x*W,a.y*H);ctx.lineTo(b.x*W,b.y*H);ctx.stroke();
+        }
+      }
+    }
+    for(var i=0;i<N;i++){
+      var p=pts[i],px=p.x*W,py=p.y*H;
+      var dm=Math.sqrt((px-mx)*(px-mx)+(py-my)*(py-my));
+      var glow=dm<140;
+      ctx.fillStyle=glow?"rgba(6,249,190,.9)":"rgba(0,231,255,"+(0.35+p.s*.45)+")";
+      var r=glow?2.6:1.6;
+      ctx.fillRect(px-r/2,py-r/2,r,r);
+    }
+    requestAnimationFrame(draw);
+  })();
+}
+
+/* Menu mobile */
+var burger=$("#burger"),mob=$("#mobmenu");
+burger.addEventListener("click",function(){
+  var open=mob.classList.toggle("open");
+  burger.classList.toggle("open",open);
+  burger.setAttribute("aria-expanded",open?"true":"false");
+});
+$$("#mobmenu a").forEach(function(a){a.addEventListener("click",function(){mob.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false");});});
+
+/* Filtres postes */
+var jobs=$$("#jobs .job"), jcount=$("#jcount");
+function refreshCount(){
+  var v=jobs.filter(function(j){return j.style.display!=="none";}).length;
+  jcount.textContent="// "+v+" profil"+(v>1?"s":"")+" affiché"+(v>1?"s":"")+" — démonstration";
+}
+$$(".fbtn").forEach(function(b){
+  b.addEventListener("click",function(){
+    $$(".fbtn").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on");
+    var f=b.dataset.f;
+    jobs.forEach(function(j){ j.style.display=(f==="all"||j.dataset.cat===f)?"":"none"; });
+    refreshCount();
+  });
+});
+refreshCount();
+
+/* ---------- Dépôt express du CV (clic ou glisser-déposer) ---------- */
+var drop=$("#drop"), cvFile=$("#cvFile"), consent=$("#consent"), poste="";
+var candPrenom=$("#candPrenom"), candNom=$("#candNom"), candEmail=$("#candEmail");
+function showFile(){
+  if(cvFile.files.length){
+    drop.classList.add("haz"); drop.classList.remove("err");
+    $("#dropTitle").textContent=cvFile.files[0].name;
+    $("#dropSub").textContent="Prêt à envoyer — cliquez pour remplacer le fichier";
+  }
+}
+function resetDropForm(){
+  cvFile.value = "";
+  drop.classList.remove("haz","err");
+  $("#dropTitle").textContent = "Glissez votre CV ici — ou cliquez";
+  $("#dropSub").textContent = "PDF, Word (.docx) ou image (JPG/PNG) · 10 Mo max · c'est le seul champ à remplir";
+  candPrenom.value = "";
+  candNom.value = "";
+  candEmail.value = "";
+  consent.checked = false;
+}
+drop.addEventListener("click",function(){ cvFile.click(); });
+drop.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();cvFile.click();} });
+["dragover","dragenter"].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.add("over"); }); });
+["dragleave","dragend"].forEach(function(ev){ drop.addEventListener(ev,function(){ drop.classList.remove("over"); }); });
+drop.addEventListener("drop",function(e){
+  e.preventDefault(); drop.classList.remove("over");
+  if(e.dataTransfer && e.dataTransfer.files.length){ cvFile.files=e.dataTransfer.files; showFile(); }
+});
+cvFile.addEventListener("change",showFile);
+
+/* Postuler depuis une fiche → mémorise le poste + descend au dépôt */
+$$(".apply").forEach(function(b){
+  b.addEventListener("click",function(){
+    poste=b.dataset.job;
+    $("#posteTxt").textContent="Poste visé : "+poste;
+    $("#posteChip").classList.add("show");
+    document.getElementById("cv").scrollIntoView({behavior:RM?"auto":"smooth"});
+  });
+});
+$("#posteClear").addEventListener("click",function(){ poste=""; $("#posteChip").classList.remove("show"); });
+
+/* Envoi → dépôt direct vers l'API backend (extraction IA + stockage CVthèque) */
+var API_BASE = "http://localhost:8000"; // TODO: adapter à l'URL du backend en production
+var sendBtn = $("#sendCv");
+var cvStatus = $("#cvStatus");
+var currentUploadRequest = null;
+
+function escHtmlWC(s){
+  return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+  });
+}
+
+function setSendBusy(busy){
+  sendBtn.disabled = busy;
+  sendBtn.style.opacity = busy ? "0.55" : "";
+  sendBtn.style.cursor = busy ? "not-allowed" : "";
+}
+
+$("#sendCv").addEventListener("click",function(){
+  if(!candPrenom.value.trim() || !candNom.value.trim() || !candEmail.value.trim() || !candEmail.checkValidity()){
+    var champEnErreur = !candPrenom.value.trim() ? candPrenom : (!candNom.value.trim() ? candNom : candEmail);
+    champEnErreur.style.borderColor = "#C0392B";
+    champEnErreur.focus();
+    champEnErreur.scrollIntoView({behavior:RM?"auto":"smooth",block:"center"});
+    return;
+  }
+  candPrenom.style.borderColor = ""; candNom.style.borderColor = ""; candEmail.style.borderColor = "";
+
+  if(!cvFile.files.length){
+    drop.classList.add("err");
+    $("#dropTitle").textContent="Sélectionnez d'abord votre CV";
+    $("#dropSub").textContent="Glissez le fichier ici ou cliquez pour parcourir";
+    drop.scrollIntoView({behavior:RM?"auto":"smooth",block:"center"});
+    return;
+  }
+  if(!consent.checked){ $("#consentBox").classList.add("err"); return; }
+  $("#consentBox").classList.remove("err");
+
+  // Annule un envoi précédent encore en cours plutôt que de les empiler
+  // (le traitement IA peut prendre plusieurs minutes selon le CV).
+  if(currentUploadRequest){ currentUploadRequest.abort(); }
+  var controller = new AbortController();
+  currentUploadRequest = controller;
+
+  var formData = new FormData();
+  formData.append("prenom", candPrenom.value.trim());
+  formData.append("nom", candNom.value.trim());
+  formData.append("email", candEmail.value.trim());
+  formData.append("file", cvFile.files[0]);
+  // NB : le poste visé mémorisé (bouton "Postuler" sur une fiche) n'est pas
+  // transmis ici — l'API extrait le poste visé directement depuis le texte
+  // du CV. Si vous voulez le transmettre en plus, il faudra l'ajouter comme
+  // champ accepté côté backend (POST /api/v1/cv/upload).
+
+  $("#formok").classList.remove("show");
+  setSendBusy(true);
+  cvStatus.className = "show";
+  cvStatus.textContent = "Envoi en cours…";
+
+  fetch(API_BASE+"/api/v1/cv/upload",{
+    method:"POST",
+    body:formData,
+    signal:controller.signal
+  })
+  .then(function(r){
+    if(!r.ok) return r.json().then(function(err){ throw new Error(err.detail || ("Erreur serveur ("+r.status+")")); });
+    return r.json();
+  })
+  .then(function(result){
+    cvStatus.className = "";
+    $("#formok").innerHTML = "Merci "+escHtmlWC(candPrenom.value.trim())+" ! Votre CV a bien été reçu — un e-mail de confirmation vient de vous être envoyé à "+escHtmlWC(candEmail.value.trim())+". Notre IA l'analyse maintenant, puis un pair de votre métier vous répond sous deux jours ouvrés.";
+    $("#formok").classList.add("show");
+    resetDropForm();
+  })
+  .catch(function(err){
+    if(err.name === "AbortError") return; // annulé volontairement (nouvel envoi), pas une vraie erreur
+    cvStatus.className = "show err";
+    cvStatus.textContent = "Une erreur est survenue pendant l'envoi de votre CV ("+err.message+"). Réessayez, ou contactez-nous directement à contact@wizetech.lu.";
+  })
+  .finally(function(){
+    if(currentUploadRequest === controller){
+      setSendBusy(false);
+      currentUploadRequest = null;
+    }
+  });
+});
+consent.addEventListener("change",function(){ if(consent.checked) $("#consentBox").classList.remove("err"); });
+
+/* Dialogs */
+$$("[data-dlg]").forEach(function(b){b.addEventListener("click",function(){var d=document.getElementById(b.dataset.dlg);if(d&&d.showModal)d.showModal();});});
+$$("dialog").forEach(function(d){
+  d.querySelector("[data-close]").addEventListener("click",function(){d.close();});
+  d.addEventListener("click",function(e){if(e.target===d)d.close();});
+});
+})();
+</script>
+</body>
+</html>
+</body>
+</html>

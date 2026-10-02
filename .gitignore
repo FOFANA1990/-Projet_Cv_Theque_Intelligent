@@ -1,0 +1,39 @@
+# Environnement Python
+venv/
+.venv/
+env/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Modèles Hugging Face
+model_cache/
+models/
+.cache/
+huggingface_cache/
+
+# Fichiers de données locaux
+*.db
+*.sqlite
+*.sqlite3
+
+# Variables d'environnement
+.env
+
+# Fichiers temporaires
+*.log
+*.tmp
+
+# Tests / cache
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Uploads locaux
+uploads/
+
+# Windows
+Thumbs.db
